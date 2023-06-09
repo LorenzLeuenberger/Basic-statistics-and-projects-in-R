@@ -1,0 +1,190 @@
+---
+title: "Report BSPR course"
+author: "Lorenz Leuenberger"
+date: "`r date()`"
+format: 
+  html:
+    toc: true
+    code-fold: true
+    code-tools: true
+    df-print: paged
+    embed-resources: true
+
+---
+
+# Introduction
+
+## Basic statistis and projects in R course
+
+The course Basic statistics and projects in R ([BSPR](https://zuw.me/kurse/dt.php?kid=4474)) is part of the Public Health Sciences Course Program ([PHS](https://zuw.me/kurse/index.php?base=phs-ispm&set_hl=en)) at the [University of Bern](https://www.unibe.ch). I attended this course from 05.06.2023 to 09.06.2023.
+
+This is my final report for the BSPR course.
+
+## Fifth Dutch growth study
+For this report I will use data from the Fifth Dutch growth study [Schönbeck et al., 2011](https://doi.org/10.1371/journal.pone.0027608). This cross-sectional study was conducted in the Netherlands from 2008 to 2009 and collected heights and weights of approximately 10'000 children aged 0-21 years.
+
+In this project I would like to assess the following question:
+
+- Does body height and body weight differ between boys and girls who participated in this study?
+
+# Data
+
+## Libraries
+For this project I will use the following libraries:
+
+```{r}
+#| output: false
+library(mice)
+library(tidyverse)
+library(here)
+library(cowplot)
+library(unibeCols)
+library(gtsummary)
+library(rstatix)
+```
+
+## Import data
+
+An anonymized dataset of the Fifth Dutch growth study can be directly loaded in R with the package mice:
+
+```{r}
+#| output: false
+data <- data.frame(fdgs)
+```
+
+## Clean data
+
+I clean the dataset by selecting the variables 'id', 'reg', 'age', 'sex', 'hgt', 'wgt' and renaming them as 'id', 'region', 'age', 'sex', 'height', 'weight':
+
+```{r}
+#| output: false
+
+data <- data %>% 
+  select('id', 'reg', 'age', 'sex', 'hgt', 'wgt')
+
+data <- data %>% 
+  rename('region'='reg', 'height'='hgt', 'weight' = 'wgt')
+
+```
+
+
+# Results
+
+## Characteristics of the study population
+
+@tbl-characteristics summarizes some major characteristics of the study population.
+
+```{r}
+#| warning: false
+#| label: tbl-characteristics
+#| tbl-cap: Characteristics of the study population
+
+tbl_characteristics <- data %>%   
+  select('region','age','sex','height','weight') %>% 
+  tbl_summary(by=sex,
+              missing="no",
+              label = list(
+      region ~ "Region",
+      age ~ "Age in years",
+      height ~ "Height in cm",
+      weight ~ "Weight in kg")
+    )
+
+tbl_characteristics
+
+```
+
+From @tbl-characteristics we can see that there were 4'829 boys and 5'201 girls participating in the study. There were less boys and girls participating from the North and City regions compared to the East, South, and West regions. The median age was 7.9 years for boys and 8.4 years for girls. The median height was 131 cm for boys and 132 cm for girls. The median weight was 27 kg for boys and 28 kg for girls.
+
+## Body height in boys and girls
+### Descriptive statistics
+
+@fig-height shows the body height of the children in this study.
+
+```{r}
+#| warning: false
+#| label: fig-height
+#| fig-cap: "Body height"
+
+fig_height <- ggplot(data, mapping=aes(x=age, y=height, color = sex))+
+  geom_point()+
+  theme_minimal()+
+  xlab("Age in years")+
+  ylab("Height in cm")+
+  scale_colour_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))
+
+fig_height
+
+```
+
+
+From @fig-height we can see that the height and weight increases with age. Therefore, i will construct age groups with 2 yearly steps and then look at the mean height and weight in these groups.
+
+@fig-box-height shows boxplots of heights for the different age groups. We start to see a difference in heights at the age group [14,16), where girls start to be smaller than boys. To test whether this difference in heights could be due to chance I will calculate confidence intervals and p-values in the next section.
+
+```{r}
+#| warning: false
+#| label: fig-box-height
+#| fig-cap: Boxplot of body height for different age groups
+
+data$age_cat<-cut(data$age,seq(from=0,to=22,by=2), right=FALSE)
+
+ggplot(data,mapping=aes(x=age_cat, y=height, fill=sex, color=sex)) +
+  geom_boxplot()+
+  theme_bw()+
+  scale_colour_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
+  scale_fill_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
+  #facet_grid(cols=vars(sex))+
+  xlab("Age category")+
+  ylab("Height")
+  
+
+```
+
+### Analytic statistics
+
+I first need to test for normality in the different age groups.
+@fig-qq-height shows QQ-Plots of the height in the different age groups.
+
+```{r}
+#| warning: false
+#| label: fig-qq-height
+#| fig-cap: QQ Plot of body height for different age groups
+#| fig-height: 15
+
+ggplot(data, mapping=aes(sample=height))+
+  geom_qq_line(distribution = stats::qnorm)+
+  geom_qq()+
+  theme_bw()+
+  scale_colour_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
+  scale_fill_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
+  facet_grid(cols=vars(sex), rows=vars(age_cat))+
+  ylab("Sample")+
+  xlab("Theoretical")
+
+
+```
+
+The QQ plots show that most age groups have a near normal distributed body height. The QQ plot for the age group [0,2) of boys and girls does show some deviation of the sample from the theoretical quantiles. Therefore, I run the Shapiro-Wilk test to test for normality in these two groups.
+
+```{r}
+data %>% 
+  filter(age_cat=="[0,2)", sex=="boy") %>% 
+  shapiro_test(height)
+  
+```
+
+
+
+```{r}
+
+tbl_height <- data %>%
+  group_by(sex,age_cat) %>% 
+  summarise(n=n(),
+            mean=mean(height,na.rm=TRUE),
+            sd=sd(height, na.rm =TRUE)
+  )
+
+tbl_height
+```
+
