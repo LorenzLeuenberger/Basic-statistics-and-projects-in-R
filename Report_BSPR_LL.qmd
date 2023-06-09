@@ -23,9 +23,10 @@ This is my final report for the BSPR course.
 ## Fifth Dutch growth study
 For this report I will use data from the Fifth Dutch growth study [Schönbeck et al., 2011](https://doi.org/10.1371/journal.pone.0027608). This cross-sectional study was conducted in the Netherlands from 2008 to 2009 and collected heights and weights of approximately 10'000 children aged 0-21 years.
 
-In this project I would like to assess the following question:
+In this project I would like to assess the following questions:
 
-- Does body height and body weight differ between boys and girls who participated in this study?
+- Does body height differ between boys and girls who participated in this study?
+- Does body weight differ between boys and girls who participated in this study?
 
 # Data
 
@@ -80,11 +81,10 @@ data <- data %>%
 #| tbl-cap: Characteristics of the study population
 
 tbl_characteristics <- data %>%   
-  select('region','age','sex','height','weight') %>% 
+  select('age','sex','height','weight') %>% 
   tbl_summary(by=sex,
               missing="no",
               label = list(
-      region ~ "Region",
       age ~ "Age in years",
       height ~ "Height in cm",
       weight ~ "Weight in kg")
@@ -150,7 +150,7 @@ I first need to test for normality in the different age groups.
 #| warning: false
 #| label: fig-qq-height
 #| fig-cap: QQ Plot of body height for different age groups
-#| fig-height: 15
+#| fig-height: 20
 
 ggplot(data, mapping=aes(sample=height))+
   geom_qq_line(distribution = stats::qnorm)+
@@ -165,26 +165,42 @@ ggplot(data, mapping=aes(sample=height))+
 
 ```
 
-The QQ plots show that most age groups have a near normal distributed body height. The QQ plot for the age group [0,2) of boys and girls does show some deviation of the sample from the theoretical quantiles. Therefore, I run the Shapiro-Wilk test to test for normality in these two groups.
+The QQ plots show that most age groups have a near normal distributed body height. The QQ plot for the age group [0,2) of boys and girls does show some deviation of the sample from the theoretical quantiles. Therefore, I run the Shapiro-Wilk test to test for normality in these two groups, see @tbl-shapiro-height.
+
 
 ```{r}
-data %>% 
-  filter(age_cat=="[0,2)", sex=="boy") %>% 
+#| warning: false
+#| label: tbl-shapiro-height
+#| tbl-cap: Shapiro-Wilk test in the age group [0,2)
+
+data %>%
+  filter(age_cat=="[0,2)") %>% 
+  group_by(sex) %>% 
   shapiro_test(height)
   
 ```
 
+The low p-values resulting from the Shapiro-Wilk test suggest that the probability that the height in these to groups follows a normal distribution is really low. For the purpose of this report I will not exclude the age group [0,2).
 
+I test the difference of the mean height between boys and girls for the different age groups. For this I use a t-test, the results are shown in @tbl-t-test-height. 
 
 ```{r}
+#| warning: false
+#| label: tbl-t-test-height
+#| tbl-cap: T test for difference in mean height between boys and girls for different age groups
 
 tbl_height <- data %>%
-  group_by(sex,age_cat) %>% 
-  summarise(n=n(),
-            mean=mean(height,na.rm=TRUE),
-            sd=sd(height, na.rm =TRUE)
-  )
-
+  group_by(age_cat) %>% 
+  t_test(formula = height~sex, conf.level=0.95, detailed=TRUE) %>% 
+  select(age_cat,statistic,conf.low,conf.high,p) %>%
+  rename("Age group"="age_cat", "Difference of mean"="statistic","Lower CI"="conf.low", "Upper CI"="conf.high","p-Value"="p")
+  
 tbl_height
 ```
 
+The difference of the means in lower age groups is than in higher age groups. In lower age groups there are some tendencies that boys are bigger. For some of the lower age groups ([0,2),[4,6),
+[6,8),[8,10)) this difference has a p-value of < 0.05 and could be seen as statistically significant.
+
+In the higher age groups ([14,16) and higher) the difference in the mean height is bigger and the results get highly significant with very low p-values. Hence, we can conclude that boys are bigger than girls, starting around the age of 14 years.
+
+## Body weight in boys and girls
