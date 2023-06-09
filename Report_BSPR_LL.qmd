@@ -94,12 +94,12 @@ tbl_characteristics
 
 ```
 
-From @tbl-characteristics we can see that there were 4'829 boys and 5'201 girls participating in the study. There were less boys and girls participating from the North and City regions compared to the East, South, and West regions. The median age was 7.9 years for boys and 8.4 years for girls. The median height was 131 cm for boys and 132 cm for girls. The median weight was 27 kg for boys and 28 kg for girls.
+From @tbl-characteristics we can see that there were 4'829 boys and 5'201 girls participating in the study. The median age was 7.9 years for boys and 8.4 years for girls. The median height was 131 cm for boys and 132 cm for girls. The median weight was 27 kg for boys and 28 kg for girls.
 
 ## Body height in boys and girls
 ### Descriptive statistics
 
-@fig-height shows the body height of the children in this study.
+@fig-height shows the body height of the children grouped by age.
 
 ```{r}
 #| warning: false
@@ -118,7 +118,26 @@ fig_height
 ```
 
 
-From @fig-height we can see that the height and weight increases with age. Therefore, i will construct age groups with 2 yearly steps and then look at the mean height and weight in these groups.
+From @fig-height we can see that the height and weight increases with age. Therefore, i construct age groups with 2 yearly steps and then look at the mean height and weight in these groups.
+
+```{r}
+#| warning: false
+#| label: tbl-height
+#| tbl-cap: Body height by age groups and sex
+
+data$age_cat<-cut(data$age,seq(from=0,to=22,by=2), right=FALSE)
+
+tbl_height <- data %>%
+  group_by(age_cat, sex) %>%
+  summarise(n=n(),
+                 mean=mean(height,na.rm=TRUE),
+                 sd = sd(height,na.rm=TRUE)
+                 ) %>% 
+  rename("Age group" = "age_cat")
+
+tbl_height
+```
+
 
 @fig-box-height shows boxplots of heights for the different age groups. We start to see a difference in heights at the age group [14,16), where girls start to be smaller than boys. To test whether this difference in heights could be due to chance I will calculate confidence intervals and p-values in the next section.
 
@@ -127,7 +146,6 @@ From @fig-height we can see that the height and weight increases with age. There
 #| label: fig-box-height
 #| fig-cap: Boxplot of body height for different age groups
 
-data$age_cat<-cut(data$age,seq(from=0,to=22,by=2), right=FALSE)
 
 ggplot(data,mapping=aes(x=age_cat, y=height, fill=sex, color=sex)) +
   geom_boxplot()+
@@ -143,7 +161,7 @@ ggplot(data,mapping=aes(x=age_cat, y=height, fill=sex, color=sex)) +
 
 ### Analytic statistics
 
-I first need to test for normality in the different age groups.
+I first test for normality in the different age groups.
 @fig-qq-height shows QQ-Plots of the height in the different age groups.
 
 ```{r}
@@ -165,7 +183,7 @@ ggplot(data, mapping=aes(sample=height))+
 
 ```
 
-The QQ plots show that most age groups have a near normal distributed body height. The QQ plot for the age group [0,2) of boys and girls does show some deviation of the sample from the theoretical quantiles. Therefore, I run the Shapiro-Wilk test to test for normality in these two groups, see @tbl-shapiro-height.
+The QQ plots show that most age groups have a near normal distributed body height. The QQ plot for the age group [0,2) of boys and girls shows some deviation of the sample quantiles from the theoretical quantiles. Therefore, I run the Shapiro-Wilk test to test for normality in this age group, see @tbl-shapiro-height.
 
 
 ```{r}
@@ -180,7 +198,7 @@ data %>%
   
 ```
 
-The low p-values resulting from the Shapiro-Wilk test suggest that the probability that the height in these to groups follows a normal distribution is really low. For the purpose of this report I will not exclude the age group [0,2).
+The low p-values resulting from the Shapiro-Wilk test suggest that the height in these to groups does nto follow a normal distribution. Because the sample size in this age group is high for both boys and girls (see @tbl-height), I will not exclude the age group [0,2). I will not perform a transformation of the height to ensure comparability accross the different age groups.
 
 I test the difference of the mean height between boys and girls for the different age groups. For this I use a t-test, the results are shown in @tbl-t-test-height. 
 
@@ -189,7 +207,7 @@ I test the difference of the mean height between boys and girls for the differen
 #| label: tbl-t-test-height
 #| tbl-cap: T test for difference in mean height between boys and girls for different age groups
 
-tbl_height <- data %>%
+tbl_height_t_test <- data %>%
   group_by(age_cat) %>% 
   t_test(formula = height~sex, conf.level=0.95, detailed=TRUE) %>% 
   select(age_cat,statistic,conf.low,conf.high,p) %>%

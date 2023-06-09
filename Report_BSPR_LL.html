@@ -4006,32 +4006,33 @@ window.onload = function() {
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tbl_characteristics <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span>   </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&#39;age&#39;</span>,<span class="st">&#39;sex&#39;</span>,<span class="st">&#39;height&#39;</span>,<span class="st">&#39;weight&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">missing=</span><span class="st">&quot;no&quot;</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="fu">list</span>(</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      age <span class="sc">~</span> <span class="st">&quot;Age in years&quot;</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      height <span class="sc">~</span> <span class="st">&quot;Height in cm&quot;</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      weight <span class="sc">~</span> <span class="st">&quot;Weight in kg&quot;</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>tbl_characteristics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>sex,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">missing=</span><span class="st">&quot;no&quot;</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="fu">list</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      age <span class="sc">~</span> <span class="st">&quot;Age in years&quot;</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      height <span class="sc">~</span> <span class="st">&quot;Height in cm&quot;</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      weight <span class="sc">~</span> <span class="st">&quot;Weight in kg&quot;</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>tbl_characteristics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="tbl-characteristics" class="anchored">
 
-<div id="pqjunjknad" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pqjunjknad table {
+<div id="arfqludejl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#arfqludejl table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#pqjunjknad thead, #pqjunjknad tbody, #pqjunjknad tfoot, #pqjunjknad tr, #pqjunjknad td, #pqjunjknad th {
+#arfqludejl thead, #arfqludejl tbody, #arfqludejl tfoot, #arfqludejl tr, #arfqludejl td, #arfqludejl th {
 border-style: none;
 }
-#pqjunjknad p {
+#arfqludejl p {
 margin: 0;
 padding: 0;
 }
-#pqjunjknad .gt_table {
+#arfqludejl .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -4056,11 +4057,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#pqjunjknad .gt_caption {
+#arfqludejl .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#pqjunjknad .gt_title {
+#arfqludejl .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -4071,7 +4072,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#pqjunjknad .gt_subtitle {
+#arfqludejl .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -4082,7 +4083,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#pqjunjknad .gt_heading {
+#arfqludejl .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -4093,12 +4094,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#pqjunjknad .gt_bottom_border {
+#arfqludejl .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#pqjunjknad .gt_col_headings {
+#arfqludejl .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -4112,7 +4113,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#pqjunjknad .gt_col_heading {
+#arfqludejl .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -4131,7 +4132,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#pqjunjknad .gt_column_spanner_outer {
+#arfqludejl .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -4142,13 +4143,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#pqjunjknad .gt_column_spanner_outer:first-child {
+#arfqludejl .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#pqjunjknad .gt_column_spanner_outer:last-child {
+#arfqludejl .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#pqjunjknad .gt_column_spanner {
+#arfqludejl .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -4159,10 +4160,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#pqjunjknad .gt_spanner_row {
+#arfqludejl .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#pqjunjknad .gt_group_heading {
+#arfqludejl .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -4187,7 +4188,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#pqjunjknad .gt_empty_group_heading {
+#arfqludejl .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -4201,13 +4202,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#pqjunjknad .gt_from_md > :first-child {
+#arfqludejl .gt_from_md > :first-child {
 margin-top: 0;
 }
-#pqjunjknad .gt_from_md > :last-child {
+#arfqludejl .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#pqjunjknad .gt_row {
+#arfqludejl .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -4225,7 +4226,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#pqjunjknad .gt_stub {
+#arfqludejl .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -4237,7 +4238,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#pqjunjknad .gt_stub_row_group {
+#arfqludejl .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -4250,13 +4251,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#pqjunjknad .gt_row_group_first td {
+#arfqludejl .gt_row_group_first td {
 border-top-width: 2px;
 }
-#pqjunjknad .gt_row_group_first th {
+#arfqludejl .gt_row_group_first th {
 border-top-width: 2px;
 }
-#pqjunjknad .gt_summary_row {
+#arfqludejl .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -4265,14 +4266,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#pqjunjknad .gt_first_summary_row {
+#arfqludejl .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#pqjunjknad .gt_first_summary_row.thick {
+#arfqludejl .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#pqjunjknad .gt_last_summary_row {
+#arfqludejl .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -4281,7 +4282,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#pqjunjknad .gt_grand_summary_row {
+#arfqludejl .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -4290,7 +4291,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#pqjunjknad .gt_first_grand_summary_row {
+#arfqludejl .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -4299,7 +4300,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#pqjunjknad .gt_last_grand_summary_row_top {
+#arfqludejl .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -4308,10 +4309,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#pqjunjknad .gt_striped {
+#arfqludejl .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#pqjunjknad .gt_table_body {
+#arfqludejl .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -4319,7 +4320,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#pqjunjknad .gt_footnotes {
+#arfqludejl .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -4332,7 +4333,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#pqjunjknad .gt_footnote {
+#arfqludejl .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -4340,7 +4341,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#pqjunjknad .gt_sourcenotes {
+#arfqludejl .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -4353,57 +4354,57 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#pqjunjknad .gt_sourcenote {
+#arfqludejl .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#pqjunjknad .gt_left {
+#arfqludejl .gt_left {
 text-align: left;
 }
-#pqjunjknad .gt_center {
+#arfqludejl .gt_center {
 text-align: center;
 }
-#pqjunjknad .gt_right {
+#arfqludejl .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#pqjunjknad .gt_font_normal {
+#arfqludejl .gt_font_normal {
 font-weight: normal;
 }
-#pqjunjknad .gt_font_bold {
+#arfqludejl .gt_font_bold {
 font-weight: bold;
 }
-#pqjunjknad .gt_font_italic {
+#arfqludejl .gt_font_italic {
 font-style: italic;
 }
-#pqjunjknad .gt_super {
+#arfqludejl .gt_super {
 font-size: 65%;
 }
-#pqjunjknad .gt_footnote_marks {
+#arfqludejl .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#pqjunjknad .gt_asterisk {
+#arfqludejl .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#pqjunjknad .gt_indent_1 {
+#arfqludejl .gt_indent_1 {
 text-indent: 5px;
 }
-#pqjunjknad .gt_indent_2 {
+#arfqludejl .gt_indent_2 {
 text-indent: 10px;
 }
-#pqjunjknad .gt_indent_3 {
+#arfqludejl .gt_indent_3 {
 text-indent: 15px;
 }
-#pqjunjknad .gt_indent_4 {
+#arfqludejl .gt_indent_4 {
 text-indent: 20px;
 }
-#pqjunjknad .gt_indent_5 {
+#arfqludejl .gt_indent_5 {
 text-indent: 25px;
 }
 </style>
@@ -4412,27 +4413,25 @@ text-indent: 25px;
     
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N = 10,030&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>N = 10,030</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;boy&lt;/strong&gt;, N = 4,829&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>boy</strong>, N = 4,829<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;girl&lt;/strong&gt;, N = 5,201&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>girl</strong>, N = 5,201<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
     <tr><td headers="label" class="gt_row gt_left">Age in years</td>
-<td headers="stat_0" class="gt_row gt_center">8.1 (1.6, 13.5)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">sex</td>
-<td headers="stat_0" class="gt_row gt_center"></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    boy</td>
-<td headers="stat_0" class="gt_row gt_center">4,829 (48%)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    girl</td>
-<td headers="stat_0" class="gt_row gt_center">5,201 (52%)</td></tr>
+<td headers="stat_1" class="gt_row gt_center">7.9 (1.5, 13.6)</td>
+<td headers="stat_2" class="gt_row gt_center">8.4 (1.7, 13.5)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">Height in cm</td>
-<td headers="stat_0" class="gt_row gt_center">132 (84, 162)</td></tr>
+<td headers="stat_1" class="gt_row gt_center">131 (84, 165)</td>
+<td headers="stat_2" class="gt_row gt_center">132 (84, 161)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">Weight in kg</td>
-<td headers="stat_0" class="gt_row gt_center">28 (12, 51)</td></tr>
+<td headers="stat_1" class="gt_row gt_center">27 (12, 52)</td>
+<td headers="stat_2" class="gt_row gt_center">28 (12, 51)</td></tr>
   </tbody>
   
   <tfoot class="gt_footnotes">
     <tr>
-      <td class="gt_footnote" colspan="2"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Median (IQR); n (%)</td>
+      <td class="gt_footnote" colspan="3"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Median (IQR)</td>
     </tr>
   </tfoot>
 </table>
@@ -4469,20 +4468,44 @@ text-indent: 25px;
 </div>
 </div>
 <p>From <a href="#fig-height">Figure 1</a> we can see that the height and weight increases with age. Therefore, i will construct age groups with 2 yearly steps and then look at the mean height and weight in these groups.</p>
-<p><a href="#fig-box-height">Figure 2</a> shows boxplots of heights for the different age groups. We start to see a difference in heights at the age group [14,16), where girls start to be smaller than boys. To test whether this difference in heights could be due to chance I will calculate confidence intervals and p-values in the next section.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>age_cat<span class="ot">&lt;-</span><span class="fu">cut</span>(data<span class="sc">$</span>age,<span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">22</span>,<span class="at">by=</span><span class="dv">2</span>), <span class="at">right=</span><span class="cn">FALSE</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>age_cat, <span class="at">y=</span>height, <span class="at">fill=</span>sex, <span class="at">color=</span>sex)) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#facet_grid(cols=vars(sex))+</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Age category&quot;</span>)<span class="sc">+</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Height&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>tbl_height <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_cat, sex) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">mean=</span><span class="fu">mean</span>(height,<span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">sd =</span> <span class="fu">sd</span>(height,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                 ) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&quot;Age group&quot;</span> <span class="ot">=</span> <span class="st">&quot;age_cat&quot;</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>tbl_height</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-height" class="anchored">
+
+<div data-pagedtable="false"> <div class="table-caption">Table 2:  Body height by age groups and sex </div>
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Age group"],"name":[1],"type":["fct"],"align":["left"]},{"label":["sex"],"name":[2],"type":["fct"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]},{"label":["mean"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"[0,2)","2":"boy","3":"1406","4":"70.81059","5":"10.798200"},{"1":"[0,2)","2":"girl","3":"1406","4":"69.51608","5":"10.572784"},{"1":"[2,4)","2":"boy","3":"547","4":"96.74725","5":"6.492587"},{"1":"[2,4)","2":"girl","3":"533","4":"96.08703","5":"6.964175"},{"1":"[4,6)","2":"boy","3":"215","4":"113.50981","5":"6.068393"},{"1":"[4,6)","2":"girl","3":"287","4":"111.94739","5":"6.574271"},{"1":"[6,8)","2":"boy","3":"270","4":"126.98476","5":"6.494299"},{"1":"[6,8)","2":"girl","3":"326","4":"125.29538","5":"6.280497"},{"1":"[8,10)","2":"boy","3":"416","4":"139.03702","5":"7.241329"},{"1":"[8,10)","2":"girl","3":"454","4":"137.67291","5":"6.750956"},{"1":"[10,12)","2":"boy","3":"478","4":"148.52615","5":"7.379282"},{"1":"[10,12)","2":"girl","3":"543","4":"148.98967","5":"7.704520"},{"1":"[12,14)","2":"boy","3":"379","4":"161.74538","5":"9.281258"},{"1":"[12,14)","2":"girl","3":"457","4":"161.17396","5":"7.795821"},{"1":"[14,16)","2":"boy","3":"419","4":"174.74177","5":"9.014584"},{"1":"[14,16)","2":"girl","3":"496","4":"166.76040","5":"6.364696"},{"1":"[16,18)","2":"boy","3":"274","4":"180.28102","5":"6.884261"},{"1":"[16,18)","2":"girl","3":"264","4":"168.46439","5":"6.795650"},{"1":"[18,20)","2":"boy","3":"262","4":"183.50573","5":"7.285666"},{"1":"[18,20)","2":"girl","3":"263","4":"169.50342","5":"6.387615"},{"1":"[20,22)","2":"boy","3":"163","4":"183.15583","5":"7.730747"},{"1":"[20,22)","2":"girl","3":"172","4":"170.49012","5":"6.479465"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</div>
+<p><a href="#fig-box-height">Figure 2</a> shows boxplots of heights for the different age groups. We start to see a difference in heights at the age group [14,16), where girls start to be smaller than boys. To test whether this difference in heights could be due to chance I will calculate confidence intervals and p-values in the next section.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>age_cat, <span class="at">y=</span>height, <span class="at">fill=</span>sex, <span class="at">color=</span>sex)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#facet_grid(cols=vars(sex))+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Age category&quot;</span>)<span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Height&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-box-height" class="quarto-figure quarto-figure-center anchored">
@@ -4500,15 +4523,15 @@ text-indent: 25px;
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">sample=</span>height))<span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>(<span class="at">distribution =</span> stats<span class="sc">::</span>qnorm)<span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>()<span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">cols=</span><span class="fu">vars</span>(sex), <span class="at">rows=</span><span class="fu">vars</span>(age_cat))<span class="sc">+</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Sample&quot;</span>)<span class="sc">+</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Theoretical&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">sample=</span>height))<span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>(<span class="at">distribution =</span> stats<span class="sc">::</span>qnorm)<span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>()<span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">cols=</span><span class="fu">vars</span>(sex), <span class="at">rows=</span><span class="fu">vars</span>(age_cat))<span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Sample&quot;</span>)<span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Theoretical&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-qq-height" class="quarto-figure quarto-figure-center anchored">
@@ -4519,19 +4542,19 @@ text-indent: 25px;
 </div>
 </div>
 </div>
-<p>The QQ plots show that most age groups have a near normal distributed body height. The QQ plot for the age group [0,2) of boys and girls does show some deviation of the sample from the theoretical quantiles. Therefore, I run the Shapiro-Wilk test to test for normality in these two groups, see <a href="#tbl-shapiro-height">Table 2</a>.</p>
+<p>The QQ plots show that most age groups have a near normal distributed body height. The QQ plot for the age group [0,2) of boys and girls does show some deviation of the sample from the theoretical quantiles. Therefore, I run the Shapiro-Wilk test to test for normality in these two groups, see <a href="#tbl-shapiro-height">Table 3</a>.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age_cat<span class="sc">==</span><span class="st">&quot;[0,2)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age_cat<span class="sc">==</span><span class="st">&quot;[0,2)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="tbl-shapiro-height" class="anchored">
 
-<div data-pagedtable="false"> <div class="table-caption">Table 2:  Shapiro-Wilk test in the age group [0,2) </div>
+<div data-pagedtable="false"> <div class="table-caption">Table 3:  Shapiro-Wilk test in the age group [0,2) </div>
   <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["sex"],"name":[1],"type":["fct"],"align":["left"]},{"label":["variable"],"name":[2],"type":["chr"],"align":["left"]},{"label":["statistic"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["p"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"boy","2":"height","3":"0.9642197","4":"4.513442e-18"},{"1":"girl","2":"height","3":"0.9695281","4":"1.345509e-16"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
@@ -4540,24 +4563,24 @@ text-indent: 25px;
 </div>
 </div>
 <p>The low p-values resulting from the Shapiro-Wilk test suggest that the probability that the height in these to groups follows a normal distribution is really low. For the purpose of this report I will not exclude the age group [0,2).</p>
-<p>I test the difference of the mean height between boys and girls for the different age groups. For this I use a t-test, the results are shown in <a href="#tbl-t-test-height">Table 3</a>.</p>
+<p>I test the difference of the mean height between boys and girls for the different age groups. For this I use a t-test, the results are shown in <a href="#tbl-t-test-height">Table 4</a>.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tbl_height <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_cat) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t_test</span>(<span class="at">formula =</span> height<span class="sc">~</span>sex, <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">detailed=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age_cat,statistic,conf.low,conf.high,p) <span class="sc">%&gt;%</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&quot;Age group&quot;</span><span class="ot">=</span><span class="st">&quot;age_cat&quot;</span>, <span class="st">&quot;Difference of mean&quot;</span><span class="ot">=</span><span class="st">&quot;statistic&quot;</span>,<span class="st">&quot;Lower CI&quot;</span><span class="ot">=</span><span class="st">&quot;conf.low&quot;</span>, <span class="st">&quot;Upper CI&quot;</span><span class="ot">=</span><span class="st">&quot;conf.high&quot;</span>,<span class="st">&quot;p-Value&quot;</span><span class="ot">=</span><span class="st">&quot;p&quot;</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>tbl_height</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tbl_height_t_test <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_cat) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t_test</span>(<span class="at">formula =</span> height<span class="sc">~</span>sex, <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">detailed=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age_cat,statistic,conf.low,conf.high,p) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&quot;Age group&quot;</span><span class="ot">=</span><span class="st">&quot;age_cat&quot;</span>, <span class="st">&quot;Difference of mean&quot;</span><span class="ot">=</span><span class="st">&quot;statistic&quot;</span>,<span class="st">&quot;Lower CI&quot;</span><span class="ot">=</span><span class="st">&quot;conf.low&quot;</span>, <span class="st">&quot;Upper CI&quot;</span><span class="ot">=</span><span class="st">&quot;conf.high&quot;</span>,<span class="st">&quot;p-Value&quot;</span><span class="ot">=</span><span class="st">&quot;p&quot;</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>tbl_height</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="tbl-t-test-height" class="anchored">
 
-<div data-pagedtable="false"> <div class="table-caption">Table 3:  T test for difference in mean height between boys and girls for different age groups </div>
+<div data-pagedtable="false"> <div class="table-caption">Table 4:  T test for difference in mean height between boys and girls for different age groups </div>
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Age group"],"name":[1],"type":["fct"],"align":["left"]},{"label":["Difference of mean"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Lower CI"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Upper CI"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p-Value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"[0,2)","2":"3.2027448","3":"0.5019737","4":"2.0870488","5":"1.38e-03"},{"1":"[2,4)","2":"1.6090100","3":"-0.1449204","4":"1.4653658","5":"1.08e-01"},{"1":"[4,6)","2":"2.7505237","3":"0.4462423","4":"2.6786103","5":"6.18e-03"},{"1":"[6,8)","2":"3.2031817","3":"0.6534560","4":"2.7252915","5":"1.44e-03"},{"1":"[8,10)","2":"2.8666639","3":"0.4301217","4":"2.2981018","5":"4.25e-03"},{"1":"[10,12)","2":"-0.9805861","3":"-1.3910910","4":"0.4640565","5":"3.27e-01"},{"1":"[12,14)","2":"0.9520085","3":"-0.6069307","4":"1.7497747","5":"3.41e-01"},{"1":"[14,16)","2":"15.1982791","3":"6.9503900","4":"9.0123341","5":"1.46e-45"},{"1":"[16,18)","2":"20.0340886","3":"10.6579722","4":"12.9752837","5":"4.72e-67"},{"1":"[18,20)","2":"23.4108295","3":"12.8272562","4":"15.1773501","5":"5.01e-83"},{"1":"[20,22)","2":"16.2069145","3":"11.1281208","4":"14.2033031","5":"1.95e-43"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["Age group"],"name":[1],"type":["fct"],"align":["left"]},{"label":["sex"],"name":[2],"type":["fct"],"align":["left"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]},{"label":["mean"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"[0,2)","2":"boy","3":"1406","4":"70.81059","5":"10.798200"},{"1":"[0,2)","2":"girl","3":"1406","4":"69.51608","5":"10.572784"},{"1":"[2,4)","2":"boy","3":"547","4":"96.74725","5":"6.492587"},{"1":"[2,4)","2":"girl","3":"533","4":"96.08703","5":"6.964175"},{"1":"[4,6)","2":"boy","3":"215","4":"113.50981","5":"6.068393"},{"1":"[4,6)","2":"girl","3":"287","4":"111.94739","5":"6.574271"},{"1":"[6,8)","2":"boy","3":"270","4":"126.98476","5":"6.494299"},{"1":"[6,8)","2":"girl","3":"326","4":"125.29538","5":"6.280497"},{"1":"[8,10)","2":"boy","3":"416","4":"139.03702","5":"7.241329"},{"1":"[8,10)","2":"girl","3":"454","4":"137.67291","5":"6.750956"},{"1":"[10,12)","2":"boy","3":"478","4":"148.52615","5":"7.379282"},{"1":"[10,12)","2":"girl","3":"543","4":"148.98967","5":"7.704520"},{"1":"[12,14)","2":"boy","3":"379","4":"161.74538","5":"9.281258"},{"1":"[12,14)","2":"girl","3":"457","4":"161.17396","5":"7.795821"},{"1":"[14,16)","2":"boy","3":"419","4":"174.74177","5":"9.014584"},{"1":"[14,16)","2":"girl","3":"496","4":"166.76040","5":"6.364696"},{"1":"[16,18)","2":"boy","3":"274","4":"180.28102","5":"6.884261"},{"1":"[16,18)","2":"girl","3":"264","4":"168.46439","5":"6.795650"},{"1":"[18,20)","2":"boy","3":"262","4":"183.50573","5":"7.285666"},{"1":"[18,20)","2":"girl","3":"263","4":"169.50342","5":"6.387615"},{"1":"[20,22)","2":"boy","3":"163","4":"183.15583","5":"7.730747"},{"1":"[20,22)","2":"girl","3":"172","4":"170.49012","5":"6.479465"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -4760,211 +4783,230 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Report BSPR course&quot;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Lorenz Leuenberger&quot;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> &quot;`r date()`&quot;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">    df-print: paged</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Basic statistis and projects in R course</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>The course Basic statistics and projects in R (<span class="co">[</span><span class="ot">BSPR</span><span class="co">](https://zuw.me/kurse/dt.php?kid=4474)</span>) is part of the Public Health Sciences Course Program (<span class="co">[</span><span class="ot">PHS</span><span class="co">](https://zuw.me/kurse/index.php?base=phs-ispm&amp;set_hl=en)</span>) at the <span class="co">[</span><span class="ot">University of Bern</span><span class="co">](https://www.unibe.ch)</span>. I attended this course from 05.06.2023 to 09.06.2023.</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>This is my final report for the BSPR course.</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fifth Dutch growth study</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>For this report I will use data from the Fifth Dutch growth study <span class="co">[</span><span class="ot">Schönbeck et al., 2011</span><span class="co">](https://doi.org/10.1371/journal.pone.0027608)</span>. This cross-sectional study was conducted in the Netherlands from 2008 to 2009 and collected heights and weights of approximately 10&#39;000 children aged 0-21 years.</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>In this project I would like to assess the following questions:</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Does body height differ between boys and girls who participated in this study?</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Does body weight differ between boys and girls who participated in this study?</span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Libraries</span></span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>For this project I will use the following libraries:</span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(unibeCols)</span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Import data</span></span>
-<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>An anonymized dataset of the Fifth Dutch growth study can be directly loaded in R with the package mice:</span>
-<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
-<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(fdgs)</span>
-<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Clean data</span></span>
-<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>I clean the dataset by selecting the variables &#39;id&#39;, &#39;reg&#39;, &#39;age&#39;, &#39;sex&#39;, &#39;hgt&#39;, &#39;wgt&#39; and renaming them as &#39;id&#39;, &#39;region&#39;, &#39;age&#39;, &#39;sex&#39;, &#39;height&#39;, &#39;weight&#39;:</span>
-<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
-<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&#39;id&#39;</span>, <span class="st">&#39;reg&#39;</span>, <span class="st">&#39;age&#39;</span>, <span class="st">&#39;sex&#39;</span>, <span class="st">&#39;hgt&#39;</span>, <span class="st">&#39;wgt&#39;</span>)</span>
-<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&#39;region&#39;</span><span class="ot">=</span><span class="st">&#39;reg&#39;</span>, <span class="st">&#39;height&#39;</span><span class="ot">=</span><span class="st">&#39;hgt&#39;</span>, <span class="st">&#39;weight&#39;</span> <span class="ot">=</span> <span class="st">&#39;wgt&#39;</span>)</span>
-<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a><span class="fu"># Results</span></span>
-<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## Characteristics of the study population</span></span>
-<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>@tbl-characteristics summarizes some major characteristics of the study population.</span>
-<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-characteristics</span></span>
-<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Characteristics of the study population</span></span>
-<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>tbl_characteristics <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span>   </span>
-<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&#39;age&#39;</span>,<span class="st">&#39;sex&#39;</span>,<span class="st">&#39;height&#39;</span>,<span class="st">&#39;weight&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">missing=</span><span class="st">&quot;no&quot;</span>,</span>
-<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="fu">list</span>(</span>
-<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>      age <span class="sc">~</span> <span class="st">&quot;Age in years&quot;</span>,</span>
-<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>      height <span class="sc">~</span> <span class="st">&quot;Height in cm&quot;</span>,</span>
-<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>      weight <span class="sc">~</span> <span class="st">&quot;Weight in kg&quot;</span>)</span>
-<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a>tbl_characteristics</span>
-<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a>From @tbl-characteristics we can see that there were 4&#39;829 boys and 5&#39;201 girls participating in the study. There were less boys and girls participating from the North and City regions compared to the East, South, and West regions. The median age was 7.9 years for boys and 8.4 years for girls. The median height was 131 cm for boys and 132 cm for girls. The median weight was 27 kg for boys and 28 kg for girls.</span>
-<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## Body height in boys and girls</span></span>
-<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### Descriptive statistics</span></span>
-<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a>@fig-height shows the body height of the children in this study.</span>
-<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-height</span></span>
-<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: &quot;Body height&quot;</span></span>
-<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a>fig_height <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>age, <span class="at">y=</span>height, <span class="at">color =</span> sex))<span class="sc">+</span></span>
-<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Age in years&quot;</span>)<span class="sc">+</span></span>
-<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Height in cm&quot;</span>)<span class="sc">+</span></span>
-<span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))</span>
-<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a>fig_height</span>
-<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a>From @fig-height we can see that the height and weight increases with age. Therefore, i will construct age groups with 2 yearly steps and then look at the mean height and weight in these groups.</span>
-<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a>@fig-box-height shows boxplots of heights for the different age groups. We start to see a difference in heights at the age group [14,16), where girls start to be smaller than boys. To test whether this difference in heights could be due to chance I will calculate confidence intervals and p-values in the next section.</span>
-<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-box-height</span></span>
-<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Boxplot of body height for different age groups</span></span>
-<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>age_cat<span class="ot">&lt;-</span><span class="fu">cut</span>(data<span class="sc">$</span>age,<span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">22</span>,<span class="at">by=</span><span class="dv">2</span>), <span class="at">right=</span><span class="cn">FALSE</span>)</span>
-<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>age_cat, <span class="at">y=</span>height, <span class="at">fill=</span>sex, <span class="at">color=</span>sex)) <span class="sc">+</span></span>
-<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
-<span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
-<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
-<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a>  <span class="co">#facet_grid(cols=vars(sex))+</span></span>
-<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Age category&quot;</span>)<span class="sc">+</span></span>
-<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Height&quot;</span>)</span>
-<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a><span class="fu">### Analytic statistics</span></span>
-<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a>I first need to test for normality in the different age groups.</span>
-<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a>@fig-qq-height shows QQ-Plots of the height in the different age groups.</span>
-<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-qq-height</span></span>
-<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: QQ Plot of body height for different age groups</span></span>
-<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 20</span></span>
-<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">sample=</span>height))<span class="sc">+</span></span>
-<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>(<span class="at">distribution =</span> stats<span class="sc">::</span>qnorm)<span class="sc">+</span></span>
-<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>()<span class="sc">+</span></span>
-<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
-<span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
-<span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">cols=</span><span class="fu">vars</span>(sex), <span class="at">rows=</span><span class="fu">vars</span>(age_cat))<span class="sc">+</span></span>
-<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Sample&quot;</span>)<span class="sc">+</span></span>
-<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Theoretical&quot;</span>)</span>
-<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a>The QQ plots show that most age groups have a near normal distributed body height. The QQ plot for the age group [0,2) of boys and girls does show some deviation of the sample from the theoretical quantiles. Therefore, I run the Shapiro-Wilk test to test for normality in these two groups, see @tbl-shapiro-height.</span>
-<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-shapiro-height</span></span>
-<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Shapiro-Wilk test in the age group [0,2)</span></span>
-<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-191"><a href="#cb10-191" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
-<span id="cb10-192"><a href="#cb10-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age_cat<span class="sc">==</span><span class="st">&quot;[0,2)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-193"><a href="#cb10-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(height)</span>
-<span id="cb10-195"><a href="#cb10-195" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-196"><a href="#cb10-196" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-197"><a href="#cb10-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-198"><a href="#cb10-198" aria-hidden="true" tabindex="-1"></a>The low p-values resulting from the Shapiro-Wilk test suggest that the probability that the height in these to groups follows a normal distribution is really low. For the purpose of this report I will not exclude the age group [0,2).</span>
-<span id="cb10-199"><a href="#cb10-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-200"><a href="#cb10-200" aria-hidden="true" tabindex="-1"></a>I test the difference of the mean height between boys and girls for the different age groups. For this I use a t-test, the results are shown in @tbl-t-test-height. </span>
-<span id="cb10-201"><a href="#cb10-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-204"><a href="#cb10-204" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-205"><a href="#cb10-205" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb10-206"><a href="#cb10-206" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-t-test-height</span></span>
-<span id="cb10-207"><a href="#cb10-207" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: T test for difference in mean height between boys and girls for different age groups</span></span>
-<span id="cb10-208"><a href="#cb10-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-209"><a href="#cb10-209" aria-hidden="true" tabindex="-1"></a>tbl_height <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb10-210"><a href="#cb10-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_cat) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-211"><a href="#cb10-211" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t_test</span>(<span class="at">formula =</span> height<span class="sc">~</span>sex, <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">detailed=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-212"><a href="#cb10-212" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age_cat,statistic,conf.low,conf.high,p) <span class="sc">%&gt;%</span></span>
-<span id="cb10-213"><a href="#cb10-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&quot;Age group&quot;</span><span class="ot">=</span><span class="st">&quot;age_cat&quot;</span>, <span class="st">&quot;Difference of mean&quot;</span><span class="ot">=</span><span class="st">&quot;statistic&quot;</span>,<span class="st">&quot;Lower CI&quot;</span><span class="ot">=</span><span class="st">&quot;conf.low&quot;</span>, <span class="st">&quot;Upper CI&quot;</span><span class="ot">=</span><span class="st">&quot;conf.high&quot;</span>,<span class="st">&quot;p-Value&quot;</span><span class="ot">=</span><span class="st">&quot;p&quot;</span>)</span>
-<span id="cb10-214"><a href="#cb10-214" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-215"><a href="#cb10-215" aria-hidden="true" tabindex="-1"></a>tbl_height</span>
-<span id="cb10-216"><a href="#cb10-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-217"><a href="#cb10-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-218"><a href="#cb10-218" aria-hidden="true" tabindex="-1"></a>The difference of the means in lower age groups is than in higher age groups. In lower age groups there are some tendencies that boys are bigger. For some of the lower age groups ([0,2),[4,6),</span>
-<span id="cb10-219"><a href="#cb10-219" aria-hidden="true" tabindex="-1"></a>[6,8),[8,10)) this difference has a p-value of &lt; 0.05 and could be seen as statistically significant.</span>
-<span id="cb10-220"><a href="#cb10-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-221"><a href="#cb10-221" aria-hidden="true" tabindex="-1"></a>In the higher age groups ([14,16) and higher) the difference in the mean height is bigger and the results get highly significant with very low p-values. Hence, we can conclude that boys are bigger than girls, starting around the age of 14 years.</span>
-<span id="cb10-222"><a href="#cb10-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-223"><a href="#cb10-223" aria-hidden="true" tabindex="-1"></a><span class="fu">## Body weight in boys and girls</span></span>
+<div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Report BSPR course&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Lorenz Leuenberger&quot;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> &quot;`r date()`&quot;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">    df-print: paged</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">    embed-resources: true</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Basic statistis and projects in R course</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>The course Basic statistics and projects in R (<span class="co">[</span><span class="ot">BSPR</span><span class="co">](https://zuw.me/kurse/dt.php?kid=4474)</span>) is part of the Public Health Sciences Course Program (<span class="co">[</span><span class="ot">PHS</span><span class="co">](https://zuw.me/kurse/index.php?base=phs-ispm&amp;set_hl=en)</span>) at the <span class="co">[</span><span class="ot">University of Bern</span><span class="co">](https://www.unibe.ch)</span>. I attended this course from 05.06.2023 to 09.06.2023.</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>This is my final report for the BSPR course.</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fifth Dutch growth study</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>For this report I will use data from the Fifth Dutch growth study <span class="co">[</span><span class="ot">Schönbeck et al., 2011</span><span class="co">](https://doi.org/10.1371/journal.pone.0027608)</span>. This cross-sectional study was conducted in the Netherlands from 2008 to 2009 and collected heights and weights of approximately 10&#39;000 children aged 0-21 years.</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>In this project I would like to assess the following questions:</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Does body height differ between boys and girls who participated in this study?</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Does body weight differ between boys and girls who participated in this study?</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Libraries</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>For this project I will use the following libraries:</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(unibeCols)</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Import data</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>An anonymized dataset of the Fifth Dutch growth study can be directly loaded in R with the package mice:</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(fdgs)</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Clean data</span></span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>I clean the dataset by selecting the variables &#39;id&#39;, &#39;reg&#39;, &#39;age&#39;, &#39;sex&#39;, &#39;hgt&#39;, &#39;wgt&#39; and renaming them as &#39;id&#39;, &#39;region&#39;, &#39;age&#39;, &#39;sex&#39;, &#39;height&#39;, &#39;weight&#39;:</span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&#39;id&#39;</span>, <span class="st">&#39;reg&#39;</span>, <span class="st">&#39;age&#39;</span>, <span class="st">&#39;sex&#39;</span>, <span class="st">&#39;hgt&#39;</span>, <span class="st">&#39;wgt&#39;</span>)</span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&#39;region&#39;</span><span class="ot">=</span><span class="st">&#39;reg&#39;</span>, <span class="st">&#39;height&#39;</span><span class="ot">=</span><span class="st">&#39;hgt&#39;</span>, <span class="st">&#39;weight&#39;</span> <span class="ot">=</span> <span class="st">&#39;wgt&#39;</span>)</span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a><span class="fu"># Results</span></span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## Characteristics of the study population</span></span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a>@tbl-characteristics summarizes some major characteristics of the study population.</span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-characteristics</span></span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Characteristics of the study population</span></span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a>tbl_characteristics <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span>   </span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&#39;age&#39;</span>,<span class="st">&#39;sex&#39;</span>,<span class="st">&#39;height&#39;</span>,<span class="st">&#39;weight&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>sex,</span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>              <span class="at">missing=</span><span class="st">&quot;no&quot;</span>,</span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="fu">list</span>(</span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a>      age <span class="sc">~</span> <span class="st">&quot;Age in years&quot;</span>,</span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a>      height <span class="sc">~</span> <span class="st">&quot;Height in cm&quot;</span>,</span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a>      weight <span class="sc">~</span> <span class="st">&quot;Weight in kg&quot;</span>)</span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a>tbl_characteristics</span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a>From @tbl-characteristics we can see that there were 4&#39;829 boys and 5&#39;201 girls participating in the study. There were less boys and girls participating from the North and City regions compared to the East, South, and West regions. The median age was 7.9 years for boys and 8.4 years for girls. The median height was 131 cm for boys and 132 cm for girls. The median weight was 27 kg for boys and 28 kg for girls.</span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Body height in boys and girls</span></span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a><span class="fu">### Descriptive statistics</span></span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a>@fig-height shows the body height of the children in this study.</span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-height</span></span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: &quot;Body height&quot;</span></span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a>fig_height <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>age, <span class="at">y=</span>height, <span class="at">color =</span> sex))<span class="sc">+</span></span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Age in years&quot;</span>)<span class="sc">+</span></span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Height in cm&quot;</span>)<span class="sc">+</span></span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))</span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a>fig_height</span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a>From @fig-height we can see that the height and weight increases with age. Therefore, i will construct age groups with 2 yearly steps and then look at the mean height and weight in these groups.</span>
+<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-height</span></span>
+<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Body height by age groups and sex</span></span>
+<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>age_cat<span class="ot">&lt;-</span><span class="fu">cut</span>(data<span class="sc">$</span>age,<span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">22</span>,<span class="at">by=</span><span class="dv">2</span>), <span class="at">right=</span><span class="cn">FALSE</span>)</span>
+<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a>tbl_height <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_cat, sex) <span class="sc">%&gt;%</span></span>
+<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a>                 <span class="at">mean=</span><span class="fu">mean</span>(height,<span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a>                 <span class="at">sd =</span> <span class="fu">sd</span>(height,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a>                 ) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&quot;Age group&quot;</span> <span class="ot">=</span> <span class="st">&quot;age_cat&quot;</span>)</span>
+<span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a>tbl_height</span>
+<span id="cb11-151"><a href="#cb11-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a>@fig-box-height shows boxplots of heights for the different age groups. We start to see a difference in heights at the age group [14,16), where girls start to be smaller than boys. To test whether this difference in heights could be due to chance I will calculate confidence intervals and p-values in the next section.</span>
+<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-box-height</span></span>
+<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Boxplot of body height for different age groups</span></span>
+<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>age_cat, <span class="at">y=</span>height, <span class="at">fill=</span>sex, <span class="at">color=</span>sex)) <span class="sc">+</span></span>
+<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
+<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
+<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
+<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a>  <span class="co">#facet_grid(cols=vars(sex))+</span></span>
+<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Age category&quot;</span>)<span class="sc">+</span></span>
+<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Height&quot;</span>)</span>
+<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-174"><a href="#cb11-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-175"><a href="#cb11-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a><span class="fu">### Analytic statistics</span></span>
+<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a>I first need to test for normality in the different age groups.</span>
+<span id="cb11-179"><a href="#cb11-179" aria-hidden="true" tabindex="-1"></a>@fig-qq-height shows QQ-Plots of the height in the different age groups.</span>
+<span id="cb11-180"><a href="#cb11-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-183"><a href="#cb11-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-184"><a href="#cb11-184" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-185"><a href="#cb11-185" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-qq-height</span></span>
+<span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: QQ Plot of body height for different age groups</span></span>
+<span id="cb11-187"><a href="#cb11-187" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 20</span></span>
+<span id="cb11-188"><a href="#cb11-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-189"><a href="#cb11-189" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">sample=</span>height))<span class="sc">+</span></span>
+<span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>(<span class="at">distribution =</span> stats<span class="sc">::</span>qnorm)<span class="sc">+</span></span>
+<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>()<span class="sc">+</span></span>
+<span id="cb11-192"><a href="#cb11-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb11-193"><a href="#cb11-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
+<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;boy&quot;</span> <span class="ot">=</span> <span class="fu">unibeIce</span>(), <span class="st">&quot;girl&quot;</span><span class="ot">=</span> <span class="fu">unibeRed</span>()))<span class="sc">+</span></span>
+<span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">cols=</span><span class="fu">vars</span>(sex), <span class="at">rows=</span><span class="fu">vars</span>(age_cat))<span class="sc">+</span></span>
+<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Sample&quot;</span>)<span class="sc">+</span></span>
+<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Theoretical&quot;</span>)</span>
+<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-199"><a href="#cb11-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-200"><a href="#cb11-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a>The QQ plots show that most age groups have a near normal distributed body height. The QQ plot for the age group [0,2) of boys and girls does show some deviation of the sample from the theoretical quantiles. Therefore, I run the Shapiro-Wilk test to test for normality in these two groups, see @tbl-shapiro-height.</span>
+<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-207"><a href="#cb11-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-208"><a href="#cb11-208" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-209"><a href="#cb11-209" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-shapiro-height</span></span>
+<span id="cb11-210"><a href="#cb11-210" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Shapiro-Wilk test in the age group [0,2)</span></span>
+<span id="cb11-211"><a href="#cb11-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-212"><a href="#cb11-212" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb11-213"><a href="#cb11-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age_cat<span class="sc">==</span><span class="st">&quot;[0,2)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-214"><a href="#cb11-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-215"><a href="#cb11-215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(height)</span>
+<span id="cb11-216"><a href="#cb11-216" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-217"><a href="#cb11-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-218"><a href="#cb11-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-219"><a href="#cb11-219" aria-hidden="true" tabindex="-1"></a>The low p-values resulting from the Shapiro-Wilk test suggest that the probability that the height in these to groups follows a normal distribution is really low. For the purpose of this report I will not exclude the age group [0,2).</span>
+<span id="cb11-220"><a href="#cb11-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-221"><a href="#cb11-221" aria-hidden="true" tabindex="-1"></a>I test the difference of the mean height between boys and girls for the different age groups. For this I use a t-test, the results are shown in @tbl-t-test-height. </span>
+<span id="cb11-222"><a href="#cb11-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-225"><a href="#cb11-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-226"><a href="#cb11-226" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-227"><a href="#cb11-227" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-t-test-height</span></span>
+<span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: T test for difference in mean height between boys and girls for different age groups</span></span>
+<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a>tbl_height_t_test <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_cat) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t_test</span>(<span class="at">formula =</span> height<span class="sc">~</span>sex, <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">detailed=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age_cat,statistic,conf.low,conf.high,p) <span class="sc">%&gt;%</span></span>
+<span id="cb11-234"><a href="#cb11-234" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&quot;Age group&quot;</span><span class="ot">=</span><span class="st">&quot;age_cat&quot;</span>, <span class="st">&quot;Difference of mean&quot;</span><span class="ot">=</span><span class="st">&quot;statistic&quot;</span>,<span class="st">&quot;Lower CI&quot;</span><span class="ot">=</span><span class="st">&quot;conf.low&quot;</span>, <span class="st">&quot;Upper CI&quot;</span><span class="ot">=</span><span class="st">&quot;conf.high&quot;</span>,<span class="st">&quot;p-Value&quot;</span><span class="ot">=</span><span class="st">&quot;p&quot;</span>)</span>
+<span id="cb11-235"><a href="#cb11-235" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-236"><a href="#cb11-236" aria-hidden="true" tabindex="-1"></a>tbl_height</span>
+<span id="cb11-237"><a href="#cb11-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-238"><a href="#cb11-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-239"><a href="#cb11-239" aria-hidden="true" tabindex="-1"></a>The difference of the means in lower age groups is than in higher age groups. In lower age groups there are some tendencies that boys are bigger. For some of the lower age groups ([0,2),[4,6),</span>
+<span id="cb11-240"><a href="#cb11-240" aria-hidden="true" tabindex="-1"></a>[6,8),[8,10)) this difference has a p-value of &lt; 0.05 and could be seen as statistically significant.</span>
+<span id="cb11-241"><a href="#cb11-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-242"><a href="#cb11-242" aria-hidden="true" tabindex="-1"></a>In the higher age groups ([14,16) and higher) the difference in the mean height is bigger and the results get highly significant with very low p-values. Hence, we can conclude that boys are bigger than girls, starting around the age of 14 years.</span>
+<span id="cb11-243"><a href="#cb11-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-244"><a href="#cb11-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## Body weight in boys and girls</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
