@@ -242,7 +242,7 @@ fig_weight <- ggplot(data, mapping=aes(x=age, y=weight, color = sex))+
   geom_point()+
   theme_minimal()+
   xlab("Age in years")+
-  ylab("weight in cm")+
+  ylab("Weight in cm")+
   scale_colour_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))
 
 fig_weight
@@ -265,7 +265,7 @@ tbl_weight <- data %>%
                  ) %>% 
   mutate(mean = round(mean, digits=3),
          sd = round(sd, digits=3)) %>% 
-  rename("Age group" = "age_cat", "mean (kg)" = "mean", "sd (kg)" = "sd")
+  rename("Age group (years)" = "age_cat", "mean (kg)" = "mean", "sd (kg)" = "sd")
 
 tbl_weight
 ```
@@ -333,7 +333,7 @@ tbl_weight_t_test <- data %>%
          conf.low = round(conf.low, digits = 3),
          conf.high = round(conf.high, digits= 3),
          p=round(p,digits=4)) %>% 
-  rename("Age group"="age_cat", "Difference of mean weight (kg)"="estimate","Lower confidence"="conf.low", "Upper confidence"="conf.high","p-Value"="p")
+  rename("Age group (years)"="age_cat", "Difference of mean weight (kg)"="estimate","Lower confidence"="conf.low", "Upper confidence"="conf.high","p-Value"="p")
   
 kable(tbl_weight_t_test)
 ```
