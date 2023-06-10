@@ -131,9 +131,10 @@ tbl_height <- data %>%
                  mean=mean(height,na.rm=TRUE),
                  sd = sd(height,na.rm=TRUE)
                  ) %>% 
-  rename("Age group" = "age_cat") %>% 
   mutate(mean = round(mean, digits=3),
-         sd = round(sd, digits=3))
+         sd = round(sd, digits=3)) %>% 
+  rename("Age group (years)" = "age_cat", "mean (cm)" = "mean", "sd (cm)" = "sd")
+  
 
 tbl_height
 ```
@@ -153,8 +154,8 @@ ggplot(data,mapping=aes(x=age_cat, y=height, fill=sex, color=sex)) +
   scale_colour_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
   scale_fill_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
   #facet_grid(cols=vars(sex))+
-  xlab("Age category")+
-  ylab("Height")
+  xlab("Age group in years")+
+  ylab("Height in cm")
   
 
 ```
@@ -162,7 +163,7 @@ ggplot(data,mapping=aes(x=age_cat, y=height, fill=sex, color=sex)) +
 ### Analytic statistics
 
 I first test for normality in the different age groups.
-@fig-qq-height shows QQ-Plots of the height in the different age groups.
+@fig-qq-height shows QQ-Plots of the height in the different age groups with a theoretical normal distribution.
 
 ```{r}
 #| warning: false
@@ -177,13 +178,13 @@ ggplot(data, mapping=aes(sample=height))+
   scale_colour_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
   scale_fill_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
   facet_grid(cols=vars(sex), rows=vars(age_cat))+
-  ylab("Sample")+
-  xlab("Theoretical")
+  ylab("Sample quantile: height in cm")+
+  xlab("Theoretical quantile: standard deviation score")
 
 
 ```
 
-The QQ plots show that most age groups have a nealry normal distributed body height. The QQ plot for the age group [0,2) of boys and girls shows some deviation of the sample quantiles from the theoretical quantiles. Therefore, I run the Shapiro-Wilk test to test for normality in this age group, see @tbl-shapiro-height.
+The QQ plots show that most age groups have a nearly normal distributed body height. The QQ plot for the age group [0,2) of boys and girls shows some deviation of the sample from the theoretical normal distribution. Therefore, I run the Shapiro-Wilk test to test for normality in this age group, see @tbl-shapiro-height.
 
 
 ```{r}
@@ -217,7 +218,7 @@ tbl_height_t_test <- data %>%
          conf.low = round(conf.low, digits = 3),
          conf.high = round(conf.high, digits= 3),
          p = round(p, digits=4)) %>% 
-  rename("Age group"="age_cat", "Difference of mean height (cm)"="estimate","Lower confidence"="conf.low", "Upper confidence"="conf.high","p-Value"="p")
+  rename("Age group (years)"="age_cat", "Difference of mean height (cm)"="estimate","Lower confidence"="conf.low", "Upper confidence"="conf.high","p-Value"="p")
   
 kable(tbl_height_t_test)
 ```
@@ -262,9 +263,9 @@ tbl_weight <- data %>%
                  mean=mean(weight,na.rm=TRUE),
                  sd = sd(weight,na.rm=TRUE)
                  ) %>% 
-  rename("Age group" = "age_cat") %>% 
   mutate(mean = round(mean, digits=3),
-         sd = round(sd, digits=3))
+         sd = round(sd, digits=3)) %>% 
+  rename("Age group" = "age_cat", "mean (kg)" = "mean", "sd (kg)" = "sd")
 
 tbl_weight
 ```
@@ -284,8 +285,8 @@ ggplot(data,mapping=aes(x=age_cat, y=weight, fill=sex, color=sex)) +
   scale_colour_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
   scale_fill_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
   #facet_grid(cols=vars(sex))+
-  xlab("Age category")+
-  ylab("weight")
+  xlab("Age group in years")+
+  ylab("weight in kg")
   
 
 ```
@@ -308,8 +309,8 @@ ggplot(data, mapping=aes(sample=weight))+
   scale_colour_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
   scale_fill_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
   facet_grid(cols=vars(sex), rows=vars(age_cat))+
-  ylab("Sample")+
-  xlab("Theoretical")
+  ylab("Sample quantile: weight in kg")+
+  xlab("Theoretical quantile: standard deviation score")
 
 
 ```
