@@ -202,7 +202,7 @@ data %>%
 
 The low p-values resulting from the Shapiro-Wilk test suggest that the height in these to groups does not follow a normal distribution. Because the sample size in this age group is high for both boys and girls (see @tbl-height), I don't exclude this group. I will not perform a transformation of the height to ensure comparability across the different age groups.
 
-I assess the difference of the mean height between boys and girls for the different age groups. For this I use a t-test with the null-hypothesis that there is no difference. The results are shown in @tbl-t-test-height. When boys are bigger the difference is positive, and when girls are bigger the difference is negative. The confidence interval is a 95%-confidence interval.
+I assess the difference of the mean height between boys and girls for the different age groups. For this I use a t-test with the null-hypothesis that there is no difference. The results are shown in @tbl-t-test-height. When boys are taller the difference is positive, and when girls are taller the difference is negative. The confidence interval is a 95%-confidence interval.
 
 ```{r}
 #| warning: false
@@ -223,10 +223,9 @@ tbl_height_t_test <- data %>%
 kable(tbl_height_t_test)
 ```
 
-The difference in body height in lower age groups is small compared to higher age groups. In lower age groups there are some tendencies that boys are approximately 1.5 cm bigger. For the age groups ([0,2),[4,6),
-[6,8),[8,10)) this difference has a p-value of < 0.01 and thus is unlikely to be only due to chance.
+The difference in body height in lower age groups is small compared to higher age groups. In lower age groups there are some tendencies that boys are approximately 1.5 cm taller. For the age groups ([0,2), [4,6), [6,8), [8,10)) this difference has a p-value of < 0.01 and thus is unlikely to be only due to chance.
 
-In the higher age groups ([14,16) and higher) the boys are 8 - 14 cm bigger than the girls and the results get highly significant. Hence, we can conclude that boys are bigger than girls, with big differences starting at 14 to 16 years.
+In the higher age groups ([14,16) and higher) the boys are 8 - 14 cm taller than the girls and the results get highly significant. Hence, we can conclude that boys are taller than girls, with big differences starting at 14 to 16 years.
 
 ## Weight in boys and girls
 ### Descriptive statistics
@@ -346,6 +345,6 @@ In the higher age groups ([14,16) and higher) the difference in the mean weight 
 
 # Discussion
 
-First, I wanted to answer the question whether boys are bigger than girls in the Fifth Dutch growth study. The results suggests that boys are bigger than girls, but only starting at ages 14-16.
+First, I wanted to answer the question whether boys are taller than girls in the Fifth Dutch growth study. The results suggests that boys are taller than girls, but only starting at ages 14-16.
 
 Second, I wanted to assess whether boys are heavier than girls in this study. We see that boys are heavier than girls, but again only starting at ages 14-16.
