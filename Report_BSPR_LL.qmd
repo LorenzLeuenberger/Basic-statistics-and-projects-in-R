@@ -1,10 +1,13 @@
 ---
-title: "Report BSPR course"
+title: "Height and weight in the Fifth Dutch growth study"
+description: "Report for the Basic statistics and projects in R course"
 author: "Lorenz Leuenberger"
 date: "`r date()`"
+title-block-banner: "#e4003c"
 format: 
   html:
     toc: true
+    number-sections: true
     code-fold: true
     code-tools: true
     df-print: paged
@@ -21,9 +24,9 @@ The course Basic statistics and projects in R ([BSPR](https://zuw.me/kurse/dt.ph
 This is my final report for the BSPR course.
 
 ## Fifth Dutch growth study
-For this report I will use data from the Fifth Dutch growth study [Schönbeck et al., 2011](https://doi.org/10.1371/journal.pone.0027608). This cross-sectional study was conducted in the Netherlands from 2008 to 2009 and collected heights and weights of approximately 10'000 children aged 0-21 years.
+For this report I will use data from the Fifth Dutch growth study ([Schönbeck et al., 2011](https://doi.org/10.1371/journal.pone.0027608)). This cross-sectional study was conducted in the Netherlands from 2008 to 2009 and collected body height and body weight of approximately 10'000 children aged 0-21 years.
 
-In this project I would like to assess the following questions:
+In this report I would like to assess the following questions:
 
 - Does body height differ between boys and girls who participated in this study?
 - Does body weight differ between boys and girls who participated in this study?
@@ -37,11 +40,10 @@ For this project I will use the following libraries:
 #| output: false
 library(mice)
 library(tidyverse)
-library(here)
-library(cowplot)
 library(unibeCols)
 library(gtsummary)
 library(rstatix)
+library(knitr)
 ```
 
 ## Import data
@@ -61,9 +63,7 @@ I clean the dataset by selecting the variables 'id', 'reg', 'age', 'sex', 'hgt',
 #| output: false
 
 data <- data %>% 
-  select('id', 'reg', 'age', 'sex', 'hgt', 'wgt')
-
-data <- data %>% 
+  select('id', 'reg', 'age', 'sex', 'hgt', 'wgt') %>%
   rename('region'='reg', 'height'='hgt', 'weight' = 'wgt')
 
 ```
@@ -73,7 +73,7 @@ data <- data %>%
 
 ## Characteristics of the study population
 
-@tbl-characteristics summarizes some major characteristics of the study population.
+@tbl-characteristics summarizes the main characteristics of the study population. There were 4'829 boys and 5'201 girls participating in the study. The median age was 7.9 years for boys and 8.4 years for girls. The median height was 131 cm for boys and 132 cm for girls. The median weight was 27 kg for boys and 28 kg for girls.
 
 ```{r}
 #| warning: false
@@ -94,12 +94,10 @@ tbl_characteristics
 
 ```
 
-From @tbl-characteristics we can see that there were 4'829 boys and 5'201 girls participating in the study. The median age was 7.9 years for boys and 8.4 years for girls. The median height was 131 cm for boys and 132 cm for girls. The median weight was 27 kg for boys and 28 kg for girls.
-
 ## Body height in boys and girls
 ### Descriptive statistics
 
-@fig-height shows the body height of the children grouped by age.
+@fig-height shows the height of the children in dependency of age grouped by sex.
 
 ```{r}
 #| warning: false
@@ -118,12 +116,12 @@ fig_height
 ```
 
 
-From @fig-height we can see that the height and weight increases with age. Therefore, i construct age groups with 2 yearly steps and then look at the mean height and weight in these groups.
+From @fig-height we can see that the height increases with age. Therefore, i construct age groups with 2 yearly steps and then look at the mean height in these groups. @tbl-height shows the number of participants n, the mean height and the standard deviation of the height for the different age groups and sexes.
 
 ```{r}
 #| warning: false
 #| label: tbl-height
-#| tbl-cap: Body height by age groups and sex
+#| tbl-cap: Body height by age group and sex
 
 data$age_cat<-cut(data$age,seq(from=0,to=22,by=2), right=FALSE)
 
@@ -133,18 +131,20 @@ tbl_height <- data %>%
                  mean=mean(height,na.rm=TRUE),
                  sd = sd(height,na.rm=TRUE)
                  ) %>% 
-  rename("Age group" = "age_cat")
+  rename("Age group" = "age_cat") %>% 
+  mutate(mean = round(mean, digits=3),
+         sd = round(sd, digits=3))
 
 tbl_height
 ```
 
 
-@fig-box-height shows boxplots of heights for the different age groups. We start to see a difference in heights at the age group [14,16), where girls start to be smaller than boys. To test whether this difference in heights could be due to chance I will calculate confidence intervals and p-values in the next section.
+@fig-box-height shows boxplots of the height for the different age groups. We start to see a difference in height at the age group [14,16), where girls start to be smaller than boys. To test whether this difference in height could be due to chance I will calculate confidence intervals and p-values in the next section.
 
 ```{r}
 #| warning: false
 #| label: fig-box-height
-#| fig-cap: Boxplot of body height for different age groups
+#| fig-cap: Boxplot of body height by age group and sex
 
 
 ggplot(data,mapping=aes(x=age_cat, y=height, fill=sex, color=sex)) +
@@ -167,7 +167,7 @@ I first test for normality in the different age groups.
 ```{r}
 #| warning: false
 #| label: fig-qq-height
-#| fig-cap: QQ Plot of body height for different age groups
+#| fig-cap: QQ Plot of body height by sex and age group
 #| fig-height: 20
 
 ggplot(data, mapping=aes(sample=height))+
@@ -183,7 +183,7 @@ ggplot(data, mapping=aes(sample=height))+
 
 ```
 
-The QQ plots show that most age groups have a near normal distributed body height. The QQ plot for the age group [0,2) of boys and girls shows some deviation of the sample quantiles from the theoretical quantiles. Therefore, I run the Shapiro-Wilk test to test for normality in this age group, see @tbl-shapiro-height.
+The QQ plots show that most age groups have a nealry normal distributed body height. The QQ plot for the age group [0,2) of boys and girls shows some deviation of the sample quantiles from the theoretical quantiles. Therefore, I run the Shapiro-Wilk test to test for normality in this age group, see @tbl-shapiro-height.
 
 
 ```{r}
@@ -194,31 +194,157 @@ The QQ plots show that most age groups have a near normal distributed body heigh
 data %>%
   filter(age_cat=="[0,2)") %>% 
   group_by(sex) %>% 
-  shapiro_test(height)
+  shapiro_test(height) %>% 
+  mutate(statistic = round(statistic,digits=3))
   
 ```
 
-The low p-values resulting from the Shapiro-Wilk test suggest that the height in these to groups does nto follow a normal distribution. Because the sample size in this age group is high for both boys and girls (see @tbl-height), I will not exclude the age group [0,2). I will not perform a transformation of the height to ensure comparability accross the different age groups.
+The low p-values resulting from the Shapiro-Wilk test suggest that the height in these to groups does not follow a normal distribution. Because the sample size in this age group is high for both boys and girls (see @tbl-height), I don't exclude this group. I will not perform a transformation of the height to ensure comparability across the different age groups.
 
-I test the difference of the mean height between boys and girls for the different age groups. For this I use a t-test, the results are shown in @tbl-t-test-height. 
+I assess the difference of the mean height between boys and girls for the different age groups. For this I use a t-test with the null-hypothesis that there is no difference. The results are shown in @tbl-t-test-height. When boys are bigger the difference is positive, and when girls are bigger the difference is negative. The confidence interval is a 95%-confidence interval.
 
 ```{r}
 #| warning: false
 #| label: tbl-t-test-height
-#| tbl-cap: T test for difference in mean height between boys and girls for different age groups
+#| tbl-cap: T-test for difference in mean height between boys and girls by age group
+#| tbl-colwidths: [13,35,20,20,12]
 
 tbl_height_t_test <- data %>%
   group_by(age_cat) %>% 
   t_test(formula = height~sex, conf.level=0.95, detailed=TRUE) %>% 
-  select(age_cat,statistic,conf.low,conf.high,p) %>%
-  rename("Age group"="age_cat", "Difference of mean"="statistic","Lower CI"="conf.low", "Upper CI"="conf.high","p-Value"="p")
+  select(age_cat,estimate,conf.low,conf.high,p) %>%
+  mutate(estimate = round(estimate,digits=3),
+         conf.low = round(conf.low, digits = 3),
+         conf.high = round(conf.high, digits= 3),
+         p = round(p, digits=4)) %>% 
+  rename("Age group"="age_cat", "Difference of mean height (cm)"="estimate","Lower confidence"="conf.low", "Upper confidence"="conf.high","p-Value"="p")
   
-tbl_height
+kable(tbl_height_t_test)
 ```
 
-The difference of the means in lower age groups is than in higher age groups. In lower age groups there are some tendencies that boys are bigger. For some of the lower age groups ([0,2),[4,6),
-[6,8),[8,10)) this difference has a p-value of < 0.05 and could be seen as statistically significant.
+The difference in body height in lower age groups is small compared to higher age groups. In lower age groups there are some tendencies that boys are approximately 1.5 cm bigger. For the age groups ([0,2),[4,6),
+[6,8),[8,10)) this difference has a p-value of < 0.01 and thus is unlikely to be only due to chance.
 
-In the higher age groups ([14,16) and higher) the difference in the mean height is bigger and the results get highly significant with very low p-values. Hence, we can conclude that boys are bigger than girls, starting around the age of 14 years.
+In the higher age groups ([14,16) and higher) the boys are 8 - 14 cm bigger than the girls and the results get highly significant. Hence, we can conclude that boys are bigger than girls, with big differences starting at 14 to 16 years.
 
-## Body weight in boys and girls
+## Weight in boys and girls
+### Descriptive statistics
+
+@fig-weight shows the weight of the children in dependency of age grouped by sex.
+
+```{r}
+#| warning: false
+#| label: fig-weight
+#| fig-cap: "Body weight"
+
+fig_weight <- ggplot(data, mapping=aes(x=age, y=weight, color = sex))+
+  geom_point()+
+  theme_minimal()+
+  xlab("Age in years")+
+  ylab("weight in cm")+
+  scale_colour_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))
+
+fig_weight
+
+```
+
+
+From @fig-weight we can see that also the weight increases with age. I construct the same age groups with 2 yearly steps as before. @tbl-weight shows the number of participants n, the mean and the standard deviation sd of the different age groups.
+
+```{r}
+#| warning: false
+#| label: tbl-weight
+#| tbl-cap: Body weight by age group and sex
+
+tbl_weight <- data %>%
+  group_by(age_cat, sex) %>%
+  summarise(n=n(),
+                 mean=mean(weight,na.rm=TRUE),
+                 sd = sd(weight,na.rm=TRUE)
+                 ) %>% 
+  rename("Age group" = "age_cat") %>% 
+  mutate(mean = round(mean, digits=3),
+         sd = round(sd, digits=3))
+
+tbl_weight
+```
+
+
+@fig-box-weight shows boxplots of the weight for the different age groups. Similar as for the body height, we start to see a difference in the body weight from the age group [14,16) onward. To test whether this difference in weight could be due to chance I will calculate confidence intervals and p-values in the next section.
+
+```{r}
+#| warning: false
+#| label: fig-box-weight
+#| fig-cap: Boxplot of body weight by age group and sex
+
+
+ggplot(data,mapping=aes(x=age_cat, y=weight, fill=sex, color=sex)) +
+  geom_boxplot()+
+  theme_bw()+
+  scale_colour_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
+  scale_fill_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
+  #facet_grid(cols=vars(sex))+
+  xlab("Age category")+
+  ylab("weight")
+  
+
+```
+
+### Analytic statistics
+
+I first test for normality in the different age groups.
+@fig-qq-weight shows QQ-Plots of the weight in the different age groups.
+
+```{r}
+#| warning: false
+#| label: fig-qq-weight
+#| fig-cap: QQ Plot of body weight by sex and age group
+#| fig-height: 20
+
+ggplot(data, mapping=aes(sample=weight))+
+  geom_qq_line(distribution = stats::qnorm)+
+  geom_qq()+
+  theme_bw()+
+  scale_colour_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
+  scale_fill_manual(values=c("boy" = unibeIce(), "girl"= unibeRed()))+
+  facet_grid(cols=vars(sex), rows=vars(age_cat))+
+  ylab("Sample")+
+  xlab("Theoretical")
+
+
+```
+
+The QQ plots show that the body weight in various age groups is not normally distributed. Because the sample size is large in all of the groups I will not use a transformation to achieve normally distributed body weights.
+
+I assess the difference of the mean weight between boys and girls for the different age groups. Again, I perform a t-test with the null-hypothesis that there is no difference. The results are shown in @tbl-t-test-weight. When boys are heavier the difference is positive, and when girls are heavier the difference is negative. The confidence interval is a 95%-confidence interval.
+
+```{r}
+#| warning: false
+#| label: tbl-t-test-weight
+#| tbl-cap: T-test for difference in mean weight between boys and girls by age group
+#| tbl-colwidths: [13,35,20,20,12]
+
+tbl_weight_t_test <- data %>%
+  group_by(age_cat) %>% 
+  t_test(formula = weight~sex, conf.level=0.95, detailed=TRUE) %>% 
+  select(age_cat,estimate,conf.low,conf.high,p) %>%
+  mutate(estimate = round(estimate,digits=3),
+         conf.low = round(conf.low, digits = 3),
+         conf.high = round(conf.high, digits= 3),
+         p=round(p,digits=4)) %>% 
+  rename("Age group"="age_cat", "Difference of mean weight (kg)"="estimate","Lower confidence"="conf.low", "Upper confidence"="conf.high","p-Value"="p")
+  
+kable(tbl_weight_t_test)
+```
+
+Similar to the body height, the difference in body weight is smaller in lower age groups compared to higher age groups. In the lowest age group there is a difference of 0.5 kg with a low p-value.
+
+In the age group [10,12) the girls are 1 kg heavier than the boys.
+
+In the higher age groups ([14,16) and higher) the difference in the mean weight is bigger and the results get highly significant with very low p-values. Boys are 4 kg heavier in the age group [14,16) and 12.5 kg heavier in the age group [20,22). Hence, we can conclude that boys are heavier than girls, starting at around 14-16 years.
+
+# Discussion
+
+We see that boys are bigger than girls, what was expected. This difference starts at around 14-16 years.
+
+For the body weight we see a similar picture. Boys start to get heavier at around 14-16 years.
